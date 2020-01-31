@@ -1,0 +1,11 @@
+<!-- Publishes the diver rig configuration in air (IMU not inside underwater housing) -->
+<launch>
+
+  <!-- Load the urdf into the parameter server. -->
+   <param name="diver_rig_air" textfile="$(find diver_rig)/urdf/diver_rig_air.urdf"/>
+
+   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" >
+     <remap from="robot_description" to="diver_rig_air" />
+   </node>
+
+</launch>

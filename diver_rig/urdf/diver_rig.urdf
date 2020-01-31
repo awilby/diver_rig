@@ -1,0 +1,39 @@
+<robot name="diver_rig">
+
+	<!-- The origin is defined as the front-right corner of the aluminum chassis,
+		   with the top of the aluminum chassis as the z-plane.-->
+	<link name="base_link">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+	</link>
+
+	<link name="microstrain_imu">
+		<origin xyz="TODO TODO TODO" rpy="TODO TODO TODO" />
+	</link>
+
+	<link name="basler_camera_left">
+		<origin xyz="0.0062 0.173 0.05" rpy="0 0 0" />
+	</link>
+
+	<link name="basler_camera_right">
+		<origin xyz="0.0062 0.064 0.05" rpy="0 0 0" />
+	</link>
+
+	<joint name="base_link_to_imu" type="fixed">
+		<parent link="base_link" />
+		<child link="microstrain_imu" />
+		<origin xyz="0 0 0" rpy="0 0 0" />
+	</joint>
+
+	<joint name="base_link_to_camera_left" type="fixed">
+		<parent link="base_link" />
+		<child link="basler_camera_left" />
+		<origin xyz="0 0 0" rpy="0 0 0" />
+	</joint>
+
+	<joint name="base_link_to_camera_right" type="fixed">
+		<parent link="base_link" />
+		<child link="basler_camera_right" />
+		<origin xyz="0 0 0" rpy="0 0 0" />
+	</joint>
+
+</robot>
