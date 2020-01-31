@@ -1,0 +1,17 @@
+<launch>
+
+  <!-- Args -->
+  <arg name="record_bag" default="false" />
+
+  <!-- Publish diver_rig transforms using robot_state_publisher -->
+  <include file="$(find diver_rig)/launch/diver_rig_state_publisher_air.launch" />
+
+  <!-- Start cameras -->
+  <include file="$(find makobot_vision)/launch/basler_stereo_rectified.launch" />
+
+  <!-- Record bagfile -->
+  <group if="$(arg record_bag)">
+    <node pkg="rosbag" type="record" name="record" args="-a" />
+  </group>
+
+</launch>
